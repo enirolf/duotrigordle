@@ -37,13 +37,24 @@ export default function About() {
         <hr className="separator" />
         <p>Duotrigordle by Bryan Chen</p>
         <p>
-          Source code on{" "}
+          Original source code on{" "}
           <a
             rel="noreferrer"
             target="_blank"
             href="https://github.com/thesilican/duotrigordle"
           >
             GitHub
+          </a>
+        </p>
+        <hr className="separator" />
+        <p>
+        Fork with this keyboard and theme available {" "}
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/enirolf/duotrigordle"
+          >
+            here
           </a>
         </p>
         <hr className="separator" />

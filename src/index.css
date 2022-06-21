@@ -4,7 +4,7 @@
   --app-red: red;
   --app-green: green;
   --guess-black: rgb(24, 26, 27);
-  --guess-gray: rgb(145, 145, 145);
+  --guess-gray: rgb(165, 165, 165);
   --guess-yellow: rgb(255, 204, 0);
   --guess-green: rgb(0, 204, 136);
   --guess-text-red: red;
@@ -16,13 +16,14 @@ html {
 }
 body {
   height: 100%;
-  background: var(--black);
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
   font-family: "Outfit", sans-serif;
   font-size: calc(var(--app-width) / 30);
 }
 #root {
   height: 100%;
+  width: 100%;
 }
 p {
   margin: 0;
@@ -31,15 +32,17 @@ ul {
   margin: 0;
 }
 a {
-  color: var(--white);
+  color: var(--black);
 }
 button {
   font-size: calc(var(--app-width) / 30);
   padding: calc(var(--app-width) / 75);
-  color: var(--white);
-  background-color: var(--black);
-  border: none;
-  border-style: double;
+  color: var(--black);
+  background-color: var(--white);
+  border-style: solid;
+  border-color: var(--black);
+  border-width: 2px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -128,8 +131,8 @@ button {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: calc(var(--app-width) / 600);
-  padding: calc(var(--app-width) / 600);
-  background: var(--white);
+  padding: calc(var(--app-width) / 600 + 0.45px);
+  background: var(--black);
 }
 
 .game:not(.game.hide-completed-boards) .board.complete {
@@ -175,10 +178,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--guess-black);
+  background: var(--white);
   font-size: calc(var(--app-width) / 25);
   line-height: 0.75;
   user-select: none;
+  margin: 0.45px;
 
   position: relative;
 }
@@ -186,11 +190,11 @@ button {
   height: calc(min(100vw, calc(var(--app-max-width) * 2)) * 0.023);
 }
 .cell.yellow {
-  color: var(--black);
+  color: var(--white);
   background: var(--guess-yellow);
 }
 .cell.green {
-  color: var(--black);
+  color: var(--white);
   background: var(--guess-green);
 }
 .cell.text-red {
@@ -203,10 +207,10 @@ button {
 /* Keyboard */
 .keyboard {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  row-gap: 2px;
-  column-gap: 2px;
-  padding: 2px;
+  row-gap: 4px;
+  padding: 5px 10px;
+  padding-bottom: 25px;
+  justify-items: center;
 }
 .keyboard.hidden {
   display: none;
@@ -216,24 +220,23 @@ button {
   width: var(--app-max-width);
 }
 
+.keyboard-row {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  column-gap: 4px;
+}
+
 .key {
   height: calc(var(--app-width) / 10);
+  width: calc(var(--app-width) / 12);
 
+  background-color: var(--guess-gray);
+  color: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
+  border: none;
   font-size: calc(var(--app-width) / 20);
-}
-.key.enter-1 {
-  border-bottom: none;
-}
-.key.enter-2 {
-  border-right: none;
-}
-.key.enter-3 {
-  border-top: none;
-  border-left: none;
 }
 
 /* Result */
@@ -298,7 +301,7 @@ button {
   display: none;
 }
 .popup {
-  background-color: var(--black);
+  background-color: var(--white);
   border: 1px solid white;
 
   width: min(calc(var(--app-max-width) * 0.75), 100vw);
@@ -366,6 +369,7 @@ button {
   background: var(--app-green);
 
   text-align: right;
+  color: var(--white);
   padding-right: calc(var(--app-width) / 120);
 }
 .stats-times {
